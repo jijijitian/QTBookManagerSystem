@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>bookManage.svg</file>
+        <file>borrowingManage.svg</file>
+        <file>borrowingRecord.svg</file>
+        <file>userManage.svg</file>
+    </qresource>
+</RCC>
