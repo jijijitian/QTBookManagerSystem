@@ -21,6 +21,38 @@ void Cell_Main::initPage()
     ui->stackedWidget->addWidget(m_bookPage);
     ui->stackedWidget->addWidget(m_recordPage);
     ui->stackedWidget->setCurrentIndex(0);
+
+    auto l = ui->tool->children();
+    for(auto it : l)
+    {
+        if(it->objectName().contains("btn"))
+        {
+            connect(static_cast<QPushButton*>(it), &QPushButton::clicked,this,&Cell_Main::dealMenu);
+        }
+    }
+}
+
+void Cell_Main::dealMenu()
+{
+    QString str = sender()->objectName();
+    do
+    {
+        if(str == "btn_user")
+        {
+            ui->stackedWidget->setCurrentIndex(0);
+            break;
+        }
+        else if(str == "btn_book")
+        {
+            ui->stackedWidget->setCurrentIndex(1);
+            break;
+        }
+        else if(str == "btn_record")
+        {
+            ui->stackedWidget->setCurrentIndex(2);
+            break;
+        }
+    }while(false);
 }
 
 Cell_Main::~Cell_Main()

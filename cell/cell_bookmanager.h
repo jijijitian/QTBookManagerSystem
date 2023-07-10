@@ -2,6 +2,8 @@
 #define CELL_BOOKMANAGER_H
 
 #include <QWidget>
+#include <QStandardItemModel>
+#include <sqlmanager.h>
 
 namespace Ui {
 class Cell_BookManager;
@@ -17,6 +19,7 @@ public:
 
 private:
     Ui::Cell_BookManager *ui;
+    QStandardItemModel m_model;
 };
 
 #endif // CELL_BOOKMANAGER_H

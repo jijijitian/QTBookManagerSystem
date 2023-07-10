@@ -2,6 +2,8 @@
 #define CELL_MAIN_H
 
 #include <QMainWindow>
+#include <QPushButton>
+#include <qstring.h>
 #include "cell_usermanager.h"
 #include "cell_bookmanager.h"
 #include "cell_borrowingrecord.h"
@@ -17,6 +19,7 @@ class Cell_Main : public QMainWindow
 public:
     Cell_Main(QWidget *parent = nullptr);
     void initPage();
+    void dealMenu();
     ~Cell_Main();
 
 private:

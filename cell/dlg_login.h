@@ -2,6 +2,7 @@
 #define DLG_LOGIN_H
 
 #include <QDialog>
+#include <sqlmanager.h>
 
 namespace Ui {
 class Dlg_Login;

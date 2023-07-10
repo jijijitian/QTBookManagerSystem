@@ -15,7 +15,9 @@ Dlg_Login::~Dlg_Login()
 
 void Dlg_Login::on_btn_login_clicked()
 {
-    setResult(1);
+    QString userName = ui->le_userName->text();
+    QString password = ui->le_password->text();
+    setResult(SqlManager::getInstance()->login(userName, password));
     hide();
 }
 

@@ -1,4 +1,5 @@
 QT       += core gui
+QT       += sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -17,3 +18,9 @@ RESOURCES += \
     res/res.qrc
 
 RC_FILE = $$PWD/res/app.rc
+
+HEADERS += \
+    sqlmanager.h
+
+SOURCES += \
+    sqlmanager.cpp

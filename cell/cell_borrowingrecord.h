@@ -2,6 +2,8 @@
 #define CELL_BORROWINGRECORD_H
 
 #include <QWidget>
+#include <QStandardItemModel>
+#include <sqlmanager.h>
 
 namespace Ui {
 class Cell_BorrowingRecord;
@@ -17,6 +19,7 @@ public:
 
 private:
     Ui::Cell_BorrowingRecord *ui;
+    QStandardItemModel m_model;
 };
 
 #endif // CELL_BORROWINGRECORD_H
