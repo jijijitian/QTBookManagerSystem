@@ -17,8 +17,16 @@ void Dlg_Login::on_btn_login_clicked()
 {
     QString userName = ui->le_userName->text();
     QString password = ui->le_password->text();
-    setResult(SqlManager::getInstance()->login(userName, password));
-    hide();
+    bool ret = SqlManager::getInstance()->login(userName, password);
+    if(ret)
+    {
+        setResult(1);
+        hide();
+    }
+    else
+    {
+        QMessageBox::warning(this, "登陆失败", "    用户名或密码错误，请重试。    ");
+    }
 }
 
 

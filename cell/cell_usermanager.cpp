@@ -20,7 +20,6 @@ Cell_UserManager::Cell_UserManager(QWidget *parent) :
         m_model.appendRow(items);
     }
 }
-
 Cell_UserManager::~Cell_UserManager()
 {
     delete ui;

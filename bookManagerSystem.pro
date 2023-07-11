@@ -18,9 +18,3 @@ RESOURCES += \
     res/res.qrc
 
 RC_FILE = $$PWD/res/app.rc
-
-HEADERS += \
-    sqlmanager.h
-
-SOURCES += \
-    sqlmanager.cpp

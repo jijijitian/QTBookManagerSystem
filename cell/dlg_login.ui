@@ -25,7 +25,7 @@ border-radius:5px;
 min-height: 20px;
 border:1px solid gray;
 }
-QPushButton{
+QPushButton[name=btn]{
 border-radius:4px;
 background:#409eff;
 color:white;
@@ -53,7 +53,23 @@ background:white;
    </property>
    <item row="0" column="0">
     <widget class="QWidget" name="bg" native="true">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>26</height>
+      </size>
+     </property>
      <layout class="QGridLayout" name="gridLayout_2">
+      <item row="1" column="0">
+       <widget class="QLabel" name="lb_txt1">
+        <property name="text">
+         <string>用户名  </string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
+       </widget>
+      </item>
       <item row="2" column="1" colspan="2">
        <widget class="QLineEdit" name="le_password">
         <property name="minimumSize">
@@ -73,22 +89,6 @@ background:white;
         </property>
        </widget>
       </item>
-      <item row="0" column="0" colspan="3">
-       <widget class="QLabel" name="lb_title">
-        <property name="maximumSize">
-         <size>
-          <width>16777215</width>
-          <height>60</height>
-         </size>
-        </property>
-        <property name="text">
-         <string>图书管理系统</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
       <item row="1" column="1" colspan="2">
        <widget class="QLineEdit" name="le_userName">
         <property name="minimumSize">
@@ -105,23 +105,19 @@ background:white;
         </property>
        </widget>
       </item>
-      <item row="1" column="0">
-       <widget class="QLabel" name="lb_txt1">
+      <item row="0" column="0" colspan="3">
+       <widget class="QLabel" name="lb_title">
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>60</height>
+         </size>
+        </property>
         <property name="text">
-         <string>用户名  </string>
+         <string>图书管理系统</string>
         </property>
         <property name="alignment">
-         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="0">
-       <widget class="QLabel" name="lb_txt2">
-        <property name="text">
-         <string>密  码  </string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+         <set>Qt::AlignCenter</set>
         </property>
        </widget>
       </item>
@@ -151,11 +147,14 @@ background:white;
            <property name="maximumSize">
             <size>
              <width>140</width>
-             <height>16777215</height>
+             <height>26</height>
             </size>
            </property>
            <property name="text">
             <string>登录</string>
+           </property>
+           <property name="name" stdset="0">
+            <string>btn</string>
            </property>
           </widget>
          </item>
@@ -170,15 +169,28 @@ background:white;
            <property name="maximumSize">
             <size>
              <width>140</width>
-             <height>16777215</height>
+             <height>26</height>
             </size>
            </property>
            <property name="text">
             <string>退出</string>
            </property>
+           <property name="name" stdset="0">
+            <string>btn</string>
+           </property>
           </widget>
          </item>
         </layout>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="lb_txt2">
+        <property name="text">
+         <string>密  码  </string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
        </widget>
       </item>
      </layout>

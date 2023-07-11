@@ -10,7 +10,7 @@ Cell_BorrowingRecord::Cell_BorrowingRecord(QWidget *parent) :
     ui->tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
     ui->tableView->setSelectionBehavior(QAbstractItemView::SelectRows);
     m_model.setHorizontalHeaderLabels(QStringList{"借阅时间","归还时间","用户id","图书id"});
-    //将用户数据添加到ui界面
+    //将借阅数据添加到ui界面
     QVector<QStringList> vec = SqlManager::getInstance()->getRecords();
     for (const QStringList& row : vec) {
         QList<QStandardItem*> items;

@@ -1,10 +1,11 @@
 #include "cell_main.h"
+#include "cell_studentmain.h"
 
 #include <QApplication>
 #include <QtDebug>
 
 #include "dlg_login.h"
-#include "sqlmanager.h"
+#include "lib/sqlmanager.h"
 
 int main(int argc, char *argv[])
 {
@@ -18,9 +19,18 @@ int main(int argc, char *argv[])
 
     if(ret == 1)
     {
-        Cell_Main w;
-        w.show();
-        return a.exec();
+        if(SqlManager::getInstance()->getAuthority() == "administrator")
+        {
+            Cell_Main w;
+            w.show();
+            return a.exec();
+        }
+        else if(SqlManager::getInstance()->getAuthority() == "student")
+        {
+            Cell_StudentMain w;
+            w.show();
+            return a.exec();
+        }
     }
     else if(ret == 0)
     {

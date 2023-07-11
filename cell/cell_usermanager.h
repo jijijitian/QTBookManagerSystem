@@ -3,7 +3,7 @@
 
 #include <QWidget>
 #include <QStandardItemModel>
-#include "sqlmanager.h"
+#include "lib/sqlmanager.h"
 
 namespace Ui {
 class Cell_UserManager;
