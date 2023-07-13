@@ -3,10 +3,10 @@
 
 #include <QMainWindow>
 #include <QPushButton>
-#include <qstring.h>
+#include <QString>
 #include "cell_accountmanager.h"
-#include "cell_bookmanager.h"
-#include "cell_borrowingrecord.h"
+#include "cell_bookborrowing.h"
+#include "cell_studentborrowing.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Cell_StudentMain; }
@@ -25,7 +25,7 @@ public:
 private:
     Ui::Cell_StudentMain *ui;
     Cell_AccountManager* m_accountPage;
-    Cell_BookManager* m_bookPage;
-    Cell_BorrowingRecord* m_recordPage;
+    Cell_BookBorrowing* m_bookPage;
+    Cell_StudentBorrowing* m_recordPage;
 };
 #endif // CELL_STUDENTMAIN_H

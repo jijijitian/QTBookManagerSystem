@@ -15,8 +15,8 @@ Cell_StudentMain::Cell_StudentMain(QWidget *parent)
 void Cell_StudentMain::initPage()
 {
     m_accountPage = new Cell_AccountManager(this);
-    m_bookPage = new Cell_BookManager(this);
-    m_recordPage = new Cell_BorrowingRecord(this);
+    m_bookPage = new Cell_BookBorrowing(this);
+    m_recordPage = new Cell_StudentBorrowing(this);
     ui->stackedWidget->addWidget(m_accountPage);
     ui->stackedWidget->addWidget(m_bookPage);
     ui->stackedWidget->addWidget(m_recordPage);

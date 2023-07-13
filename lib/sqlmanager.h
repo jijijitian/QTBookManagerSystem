@@ -8,6 +8,7 @@
 #include <QSqlRecord>
 #include <QtDebug>
 #include <QSqlError>
+#include <QDateTime>
 
 class SqlManager
 {
@@ -34,6 +35,9 @@ public:
     //获取用户（条件默认为空）
     QVector<QStringList> getUsers(QString condition="");
 
+    //修改密码
+    bool changePassword(QString userId, QString password);
+
     //添加用户
     bool addUsers(QVector<QStringList> students);
 
@@ -44,25 +48,25 @@ public:
     QVector<QStringList> getBooks(QString condition="");
 
     //增加图书
-    void addBooks(QVector<QString>);
+    bool addBooks(QStringList book);
 
     //删除图书
-    void deleteBook(QString bookId);
+    bool deleteBook(QString bookId);
 
     //修改图书
-    void changeBook(QString bookId);
+    bool changeBook(QString bookId, QStringList book);
 
     //图书借阅
-    QString borrowBook(QString bookId);
+    bool borrowBook(QString userId, QString bookId);
 
     //图书归还
-    QString returnbook(QString userId, QString bookId);
+    bool returnbook(QString userId, QString bookId);
 
     //获取借阅记录
     QVector<QStringList> getRecords(QString condition="");
 
     //删除借阅记录
-    QString clearRecord();
+    bool clearRecord();
 
     //获取账户信息
     QStringList getAccount();

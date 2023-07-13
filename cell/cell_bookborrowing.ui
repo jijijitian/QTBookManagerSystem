@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Cell_BookManager</class>
- <widget class="QWidget" name="Cell_BookManager">
+ <class>Cell_BookBorrowing</class>
+ <widget class="QWidget" name="Cell_BookBorrowing">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -27,7 +27,7 @@
    <item row="0" column="0">
     <widget class="QLabel" name="title">
      <property name="text">
-      <string>图书管理</string>
+      <string>图书借阅</string>
      </property>
      <property name="name" stdset="0">
       <string>title</string>
@@ -37,17 +37,7 @@
    <item row="1" column="0">
     <widget class="QWidget" name="widget" native="true">
      <layout class="QGridLayout" name="gridLayout">
-      <item row="0" column="1">
-       <widget class="QLineEdit" name="lineEdit">
-        <property name="placeholderText">
-         <string>请输入书名</string>
-        </property>
-        <property name="name" stdset="0">
-         <string>le</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="5">
+      <item row="0" column="4">
        <spacer name="horizontalSpacer">
         <property name="orientation">
          <enum>Qt::Horizontal</enum>
@@ -60,6 +50,36 @@
         </property>
        </spacer>
       </item>
+      <item row="0" column="2">
+       <widget class="QPushButton" name="pushButton">
+        <property name="text">
+         <string>图书借阅</string>
+        </property>
+        <property name="name" stdset="0">
+         <string>btn</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="lineEdit">
+        <property name="placeholderText">
+         <string>请输入书名</string>
+        </property>
+        <property name="name" stdset="0">
+         <string>le</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="3">
+       <widget class="QPushButton" name="pushButton_3">
+        <property name="text">
+         <string>图书归还</string>
+        </property>
+        <property name="name" stdset="0">
+         <string>btn</string>
+        </property>
+       </widget>
+      </item>
       <item row="0" column="0">
        <widget class="QLabel" name="label">
         <property name="text">
@@ -67,36 +87,6 @@
         </property>
         <property name="name" stdset="0">
          <string>label</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="3">
-       <widget class="QPushButton" name="pushButton_3">
-        <property name="text">
-         <string>更改书籍</string>
-        </property>
-        <property name="name" stdset="0">
-         <string>btn</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="4">
-       <widget class="QPushButton" name="pushButton_2">
-        <property name="text">
-         <string>删除书籍</string>
-        </property>
-        <property name="name" stdset="0">
-         <string>btn</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="2">
-       <widget class="QPushButton" name="pushButton">
-        <property name="text">
-         <string>添加书籍</string>
-        </property>
-        <property name="name" stdset="0">
-         <string>btn</string>
         </property>
        </widget>
       </item>

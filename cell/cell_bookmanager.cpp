@@ -9,7 +9,7 @@ Cell_BookManager::Cell_BookManager(QWidget *parent) :
     ui->tableView->setModel(&m_model);
     ui->tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
     ui->tableView->setSelectionBehavior(QAbstractItemView::SelectRows);
-    m_model.setHorizontalHeaderLabels(QStringList{"书名","作者","库存","出版社","类型1","类型2","类型3"});
+    m_model.setHorizontalHeaderLabels(QStringList{"图书id", "书名", "作者", "库存", "出版社", "类型1", "类型2", "类型3"});
     //将图书数据添加到ui界面
     QVector<QStringList> vec = SqlManager::getInstance()->getBooks();
     for (const QStringList& row : vec) {

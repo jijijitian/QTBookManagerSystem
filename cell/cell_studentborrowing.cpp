@@ -1,9 +1,9 @@
-#include "cell_borrowingrecord.h"
-#include "ui_cell_borrowingrecord.h"
+#include "cell_studentborrowing.h"
+#include "ui_cell_studentborrowing.h"
 
-Cell_BorrowingRecord::Cell_BorrowingRecord(QWidget *parent) :
+Cell_StudentBorrowing::Cell_StudentBorrowing(QWidget *parent) :
     QWidget(parent),
-    ui(new Ui::Cell_BorrowingRecord)
+    ui(new Ui::Cell_StudentBorrowing)
 {
     ui->setupUi(this);
     ui->tableView->setModel(&m_model);
@@ -21,7 +21,7 @@ Cell_BorrowingRecord::Cell_BorrowingRecord(QWidget *parent) :
     }
 }
 
-Cell_BorrowingRecord::~Cell_BorrowingRecord()
+Cell_StudentBorrowing::~Cell_StudentBorrowing()
 {
     delete ui;
 }

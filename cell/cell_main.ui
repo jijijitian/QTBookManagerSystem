@@ -6,12 +6,12 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>900</width>
+    <width>1000</width>
     <height>600</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>图书管理系统</string>
+   <string>图书管理系统（管理员）</string>
   </property>
   <property name="styleSheet">
    <string notr="true">QLabel[name=&quot;title&quot;]{
@@ -22,16 +22,28 @@ font:16px '宋体';
 }
 QLineEdit[name=&quot;le&quot;]{
 border-radius:5px;
-min-height: 20px;
+min-height: 22px;
 border:1px solid gray;
 min-width:280px;
 max-width:280px;
 }
+
 QPushButton[name=&quot;btn&quot;]{
 border-radius:4px;
 border:1px solid #787a7f;
 background:#f4f4f5;
 color:#787a7f;
+font:14px '微软雅黑';
+min-height:20px;
+min-width:74px;
+padding:4px;
+}
+
+QPushButton [name=&quot;btn&quot;]:hover{
+border-radius:4px;
+border:1px solid #909399;
+background:#909399;
+color:white;
 font:14px '微软雅黑';
 min-height:20px;
 min-width:74px;

@@ -9,7 +9,7 @@ Cell_AccountManager::Cell_AccountManager(QWidget *parent) :
     ui->tableView->setModel(&m_model);
     ui->tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
     ui->tableView->setSelectionBehavior(QAbstractItemView::SelectRows);
-    m_model.setHorizontalHeaderLabels(QStringList{"用户名","姓名","部门", "学号", "信用"});
+    m_model.setHorizontalHeaderLabels(QStringList{"用户名", "姓名", "部门", "学号", "信用"});
 
     //将用户数据添加到ui界面
     QStringList account = SqlManager::getInstance()->getAccount();

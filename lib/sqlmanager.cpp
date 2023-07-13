@@ -69,7 +69,7 @@ QVector<QStringList> SqlManager::getUsers(QString condition)
             for(int i = 0; i < iCol; i++)
             {
                 //默认不获取用户id与密码
-                if(i != 0 && i != 2)
+                if(i != 2)
                 {
                     l << q.value(i).toString();
                 }
@@ -83,6 +83,35 @@ QVector<QStringList> SqlManager::getUsers(QString condition)
         qDebug() << q.lastError().text();
     }
     return vec;
+}
+
+bool SqlManager::changePassword(QString userId, QString password)
+{
+    QSqlQuery q(m_db);
+
+    // 开始一个事务
+    m_db.transaction();
+
+    // 更新用户密码
+    QString strSql = QString("UPDATE user SET password = '%1' WHERE id = '%2'")
+                         .arg(password).arg(userId);
+
+    if (!q.exec(strSql)) {
+        qDebug() << q.lastError().text();
+        m_db.rollback();
+        return false;
+    }
+
+    // 如果没有任何行受到影响，说明用户id不存在，回滚事务并返回false
+    if (q.numRowsAffected() <= 0) {
+        m_db.rollback();
+        return false;
+    }
+
+    // 如果所有操作都成功，我们就提交事务
+    m_db.commit();
+
+    return true;
 }
 
 bool SqlManager::addUsers(QVector<QStringList> students)
@@ -118,8 +147,28 @@ bool SqlManager::addUsers(QVector<QStringList> students)
 
 bool SqlManager::deleteUser(QString userId)
 {
+    QSqlQuery q(m_db);
 
+    // 开始一个事务
+    m_db.transaction();
+
+    // 删除用户
+    QString strSql = QString("DELETE FROM user WHERE id = '%1'").arg(userId);
+    bool success = q.exec(strSql);
+    if (!success) {
+        qDebug() << q.lastError().text();
+    }
+
+    // 如果删除操作成功，我们就提交事务，否则我们就回滚事务
+    if (success) {
+        m_db.commit();
+    } else {
+        m_db.rollback();
+    }
+
+    return success;
 }
+
 
 QVector<QStringList> SqlManager::getBooks(QString condition)
 {
@@ -139,10 +188,7 @@ QVector<QStringList> SqlManager::getBooks(QString condition)
             l.clear();
             for(int i = 0; i < iCol; i++)
             {
-                if(i != 0)
-                {
-                    l << q.value(i).toString();
-                }
+                l << q.value(i).toString();
             }
             vec.push_back(l);
         }
@@ -155,9 +201,177 @@ QVector<QStringList> SqlManager::getBooks(QString condition)
     return vec;
 }
 
-QString SqlManager::borrowBook(QString bookId)
+bool SqlManager::addBooks(QStringList book)
 {
+    QSqlQuery q(m_db);
 
+    // 开始一个事务
+    m_db.transaction();
+
+    bool success = true;
+
+    // 添加书籍
+    QString strSql = QString("INSERT INTO book VALUES(NULL, '%1', '%2', '%3', '%4', '%5', '%6', '%7')")
+                         .arg(book[0]).arg(book[1]).arg(book[2]).arg(book[3]).arg(book[4]).arg(book[5]).arg(book[6]);
+    if (!q.exec(strSql)) {
+        qDebug() << q.lastError().text();
+        success = false;
+    }
+
+    // 如果所有插入操作都成功，我们就提交事务，否则我们就回滚事务
+    if (success) {
+        m_db.commit();
+    } else {
+        m_db.rollback();
+    }
+
+    return success;
+}
+
+bool SqlManager::deleteBook(QString bookId)
+{
+    QSqlQuery q(m_db);
+
+    // 开始一个事务
+    m_db.transaction();
+
+    // 删除用户
+    QString strSql = QString("DELETE FROM book WHERE id = '%1'").arg(bookId);
+    bool success = q.exec(strSql);
+    if (!success) {
+        qDebug() << q.lastError().text();
+    }
+
+    // 如果删除操作成功，我们就提交事务，否则我们就回滚事务
+    if (success) {
+        m_db.commit();
+    } else {
+        m_db.rollback();
+    }
+
+    return success;
+}
+
+bool SqlManager::changeBook(QString bookId, QStringList book)
+{
+    QSqlQuery q(m_db);
+
+    // 开始一个事务
+    m_db.transaction();
+
+    QString strSql = QString("UPDATE book SET title = '%1', author = '%2', inventory = '%3', press = '%4', type1 = '%5', type2 = '%6', type3 = '%7',  WHERE id = '%8'")
+                         .arg(book[0]).arg(book[1]).arg(book[2]).arg(book[3]).arg(book[4]).arg(book[5]).arg(book[6]).arg(bookId);
+
+    bool success = q.exec(strSql);
+
+    if (!success) {
+        qDebug() << q.lastError().text();
+    }
+
+    // 如果修改操作成功，我们就提交事务，否则我们就回滚事务
+    if (success) {
+        m_db.commit();
+    } else {
+        m_db.rollback();
+    }
+
+    return success;
+}
+
+
+bool SqlManager::borrowBook(QString userId, QString bookId)
+{
+    QSqlQuery q(m_db);
+
+    // 开始一个事务
+    m_db.transaction();
+
+    // 检查书籍库存
+    QString strCheck = QString("SELECT inventory FROM book WHERE id = '%1'").arg(bookId);
+    if (!q.exec(strCheck)) {
+        qDebug() << q.lastError().text();
+        m_db.rollback();
+        return false;
+    }
+
+    if (!q.next() || q.value(0).toInt() <= 0) {
+        m_db.rollback();
+        return false;
+    }
+
+    // 获取当前时间
+    QString currentTime = QDateTime::currentDateTime().toString("yyyy-MM-dd HH:mm:ss");
+
+    // 插入借阅记录
+    QString strSql = QString("INSERT INTO record(borrowingTime, returnTime, userid, bookid) VALUES('%1', NULL, '%2', '%3')")
+                         .arg(currentTime).arg(userId).arg(bookId);
+    if (!q.exec(strSql)) {
+        qDebug() << q.lastError().text();
+        m_db.rollback();
+        return false;
+    }
+
+    // 更新书籍库存
+    QString strUpdate = QString("UPDATE book SET inventory = inventory - 1 WHERE id = '%1'").arg(bookId);
+    if (!q.exec(strUpdate)) {
+        qDebug() << q.lastError().text();
+        m_db.rollback();
+        return false;
+    }
+
+    // 如果所有操作都成功，我们就提交事务
+    m_db.commit();
+
+    return true;
+}
+
+bool SqlManager::returnbook(QString userId, QString bookId)
+{
+    QSqlQuery q(m_db);
+
+    // 开始一个事务
+    m_db.transaction();
+
+    // 检查用户是否已借阅该书籍
+    QString strCheck = QString("SELECT id FROM record WHERE userid = '%1' AND bookid = '%2' AND returnTime IS NULL")
+                           .arg(userId).arg(bookId);
+    if (!q.exec(strCheck)) {
+        qDebug() << q.lastError().text();
+        m_db.rollback();
+        return false;
+    }
+
+    if (!q.next()) {
+        m_db.rollback();
+        return false;
+    }
+
+    QString borrowId = q.value(0).toString();
+
+    // 获取当前时间
+    QString currentTime = QDateTime::currentDateTime().toString("yyyy-MM-dd HH:mm:ss");
+
+    // 更新借阅记录的返回时间
+    QString strSql = QString("UPDATE borrow_table SET returnTime = '%1' WHERE id = '%2'")
+                         .arg(currentTime).arg(borrowId);
+    if (!q.exec(strSql)) {
+        qDebug() << q.lastError().text();
+        m_db.rollback();
+        return false;
+    }
+
+    // 更新书籍库存
+    QString strUpdate = QString("UPDATE book SET inventory = inventory + 1 WHERE id = '%1'").arg(bookId);
+    if (!q.exec(strUpdate)) {
+        qDebug() << q.lastError().text();
+        m_db.rollback();
+        return false;
+    }
+
+    // 如果所有操作都成功，我们就提交事务
+    m_db.commit();
+
+    return true;
 }
 
 QVector<QStringList> SqlManager::getRecords(QString condition)
@@ -178,10 +392,7 @@ QVector<QStringList> SqlManager::getRecords(QString condition)
             l.clear();
             for(int i = 0; i < iCol; i++)
             {
-                if(i != 0)
-                {
-                    l << q.value(i).toString();
-                }
+                l << q.value(i).toString();
             }
             vec.push_back(l);
         }
@@ -192,6 +403,28 @@ QVector<QStringList> SqlManager::getRecords(QString condition)
         qDebug() << q.lastError().text();
     }
     return vec;
+}
+
+bool SqlManager::clearRecord()
+{
+    QSqlQuery q(m_db);
+
+    // 开始一个事务
+    m_db.transaction();
+
+    // 删除所有已归还的借阅记录
+    QString strSql = "DELETE FROM borrow_table WHERE returnTime IS NOT NULL";
+
+    if (!q.exec(strSql)) {
+        qDebug() << q.lastError().text();
+        m_db.rollback();
+        return false;
+    }
+
+    // 如果所有操作都成功，我们就提交事务
+    m_db.commit();
+
+    return true;
 }
 
 QStringList SqlManager::getAccount()

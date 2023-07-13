@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Cell_BorrowingRecord</class>
- <widget class="QWidget" name="Cell_BorrowingRecord">
+ <class>Cell_StudentBorrowing</class>
+ <widget class="QWidget" name="Cell_StudentBorrowing">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -31,16 +31,6 @@
     <widget class="QWidget" name="widget" native="true">
      <layout class="QGridLayout" name="gridLayout">
       <item row="0" column="0">
-       <widget class="QPushButton" name="pushButton">
-        <property name="text">
-         <string>清空记录</string>
-        </property>
-        <property name="name" stdset="0">
-         <string>btn</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="1">
        <spacer name="horizontalSpacer">
         <property name="orientation">
          <enum>Qt::Horizontal</enum>
