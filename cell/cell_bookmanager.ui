@@ -37,13 +37,19 @@
    <item row="1" column="0">
     <widget class="QWidget" name="widget" native="true">
      <layout class="QGridLayout" name="gridLayout">
-      <item row="0" column="1">
-       <widget class="QLineEdit" name="lineEdit">
-        <property name="placeholderText">
-         <string>请输入书名</string>
+      <item row="0" column="0">
+       <widget class="QPushButton" name="pushButton_4">
+        <property name="maximumSize">
+         <size>
+          <width>40</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>搜索</string>
         </property>
         <property name="name" stdset="0">
-         <string>le</string>
+         <string>btn</string>
         </property>
        </widget>
       </item>
@@ -59,16 +65,6 @@
          </size>
         </property>
        </spacer>
-      </item>
-      <item row="0" column="0">
-       <widget class="QLabel" name="label">
-        <property name="text">
-         <string>搜索</string>
-        </property>
-        <property name="name" stdset="0">
-         <string>label</string>
-        </property>
-       </widget>
       </item>
       <item row="0" column="3">
        <widget class="QPushButton" name="pushButton_3">
@@ -97,6 +93,16 @@
         </property>
         <property name="name" stdset="0">
          <string>btn</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="lineEdit">
+        <property name="placeholderText">
+         <string>请输入书名</string>
+        </property>
+        <property name="name" stdset="0">
+         <string>le</string>
         </property>
        </widget>
       </item>

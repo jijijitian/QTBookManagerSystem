@@ -20,16 +20,6 @@
    <item row="1" column="0">
     <widget class="QWidget" name="widget" native="true">
      <layout class="QGridLayout" name="gridLayout">
-      <item row="0" column="2">
-       <widget class="QPushButton" name="pushButton">
-        <property name="text">
-         <string>用户导入</string>
-        </property>
-        <property name="name" stdset="0">
-         <string>btn</string>
-        </property>
-       </widget>
-      </item>
       <item row="0" column="3">
        <widget class="QPushButton" name="pushButton_2">
         <property name="text">
@@ -54,15 +44,18 @@
        </spacer>
       </item>
       <item row="0" column="0">
-       <widget class="QLabel" name="label">
+       <widget class="QPushButton" name="pushButton_3">
+        <property name="maximumSize">
+         <size>
+          <width>40</width>
+          <height>16777215</height>
+         </size>
+        </property>
         <property name="text">
          <string>搜索</string>
         </property>
-        <property name="alignment">
-         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-        </property>
         <property name="name" stdset="0">
-         <string>label</string>
+         <string>btn</string>
         </property>
        </widget>
       </item>
@@ -73,6 +66,16 @@
         </property>
         <property name="name" stdset="0">
          <string>le</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="2">
+       <widget class="QPushButton" name="pushButton">
+        <property name="text">
+         <string>用户导入</string>
+        </property>
+        <property name="name" stdset="0">
+         <string>btn</string>
         </property>
        </widget>
       </item>

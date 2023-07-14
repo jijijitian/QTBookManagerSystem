@@ -24,3 +24,10 @@ Cell_AccountManager::~Cell_AccountManager()
 {
     delete ui;
 }
+
+void Cell_AccountManager::on_pushButton_clicked()
+{
+    Dlg_ChangePassword dlg;
+    dlg.exec();
+}
+

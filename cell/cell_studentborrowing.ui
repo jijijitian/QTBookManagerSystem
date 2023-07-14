@@ -20,7 +20,7 @@
    <item row="0" column="0">
     <widget class="QLabel" name="title">
      <property name="text">
-      <string>借阅查询</string>
+      <string>借阅图书</string>
      </property>
      <property name="name" stdset="0">
       <string>title</string>

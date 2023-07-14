@@ -9,9 +9,10 @@ Cell_StudentBorrowing::Cell_StudentBorrowing(QWidget *parent) :
     ui->tableView->setModel(&m_model);
     ui->tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
     ui->tableView->setSelectionBehavior(QAbstractItemView::SelectRows);
-    m_model.setHorizontalHeaderLabels(QStringList{"借阅id", "借阅时间", "归还时间", "用户id", "图书id"});
+    m_model.setHorizontalHeaderLabels(QStringList{"书名", "借阅时间", "借阅状态", "归还时间"});
     //将借阅数据添加到ui界面
-    QVector<QStringList> vec = SqlManager::getInstance()->getRecords();
+    QString condition = QString("WHERE record.userid = %1").arg(SqlManager::getInstance()->getUserid());
+    QVector<QStringList> vec = SqlManager::getInstance()->getBorrowingBooks(condition);
     for (const QStringList& row : vec) {
         QList<QStandardItem*> items;
         for (const QString& value : row) {

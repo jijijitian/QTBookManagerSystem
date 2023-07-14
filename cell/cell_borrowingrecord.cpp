@@ -21,7 +21,31 @@ Cell_BorrowingRecord::Cell_BorrowingRecord(QWidget *parent) :
     }
 }
 
+void Cell_BorrowingRecord::refreshTabel()
+{
+    //刷新借阅列表
+    m_model.clear();
+    m_model.setHorizontalHeaderLabels(QStringList{"借阅id", "借阅时间", "归还时间", "用户id", "图书id"});
+    //将借阅数据添加到ui界面
+    QVector<QStringList> vec = SqlManager::getInstance()->getRecords();
+    for (const QStringList& row : vec) {
+        QList<QStandardItem*> items;
+        for (const QString& value : row) {
+            items.append(new QStandardItem(value));
+        }
+        m_model.appendRow(items);
+    }
+}
+
 Cell_BorrowingRecord::~Cell_BorrowingRecord()
 {
     delete ui;
 }
+
+void Cell_BorrowingRecord::on_pushButton_clicked()
+{
+    Dlg_DeleteRecord dlg;
+    dlg.exec();
+    this->refreshTabel();
+}
+

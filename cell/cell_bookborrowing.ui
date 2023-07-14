@@ -37,7 +37,27 @@
    <item row="1" column="0">
     <widget class="QWidget" name="widget" native="true">
      <layout class="QGridLayout" name="gridLayout">
+      <item row="0" column="5">
+       <widget class="QPushButton" name="pushButton_3">
+        <property name="text">
+         <string>图书归还</string>
+        </property>
+        <property name="name" stdset="0">
+         <string>btn</string>
+        </property>
+       </widget>
+      </item>
       <item row="0" column="4">
+       <widget class="QPushButton" name="pushButton">
+        <property name="text">
+         <string>图书借阅</string>
+        </property>
+        <property name="name" stdset="0">
+         <string>btn</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="6">
        <spacer name="horizontalSpacer">
         <property name="orientation">
          <enum>Qt::Horizontal</enum>
@@ -51,16 +71,6 @@
        </spacer>
       </item>
       <item row="0" column="2">
-       <widget class="QPushButton" name="pushButton">
-        <property name="text">
-         <string>图书借阅</string>
-        </property>
-        <property name="name" stdset="0">
-         <string>btn</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="1">
        <widget class="QLineEdit" name="lineEdit">
         <property name="placeholderText">
          <string>请输入书名</string>
@@ -70,23 +80,19 @@
         </property>
        </widget>
       </item>
-      <item row="0" column="3">
-       <widget class="QPushButton" name="pushButton_3">
-        <property name="text">
-         <string>图书归还</string>
-        </property>
-        <property name="name" stdset="0">
-         <string>btn</string>
-        </property>
-       </widget>
-      </item>
       <item row="0" column="0">
-       <widget class="QLabel" name="label">
+       <widget class="QPushButton" name="btn_search">
+        <property name="maximumSize">
+         <size>
+          <width>40</width>
+          <height>16777215</height>
+         </size>
+        </property>
         <property name="text">
          <string>搜索</string>
         </property>
         <property name="name" stdset="0">
-         <string>label</string>
+         <string>btn</string>
         </property>
        </widget>
       </item>

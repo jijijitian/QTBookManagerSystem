@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QStandardItemModel>
 #include <lib/sqlmanager.h>
+#include "dlg_changepassword.h"
 
 namespace Ui {
 class Cell_AccountManager;
@@ -16,6 +17,9 @@ class Cell_AccountManager : public QWidget
 public:
     explicit Cell_AccountManager(QWidget *parent = nullptr);
     ~Cell_AccountManager();
+
+private slots:
+    void on_pushButton_clicked();
 
 private:
     Ui::Cell_AccountManager *ui;

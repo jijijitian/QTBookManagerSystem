@@ -36,7 +36,7 @@ public:
     QVector<QStringList> getUsers(QString condition="");
 
     //修改密码
-    bool changePassword(QString userId, QString password);
+    bool changePassword(QString password);
 
     //添加用户
     bool addUsers(QVector<QStringList> students);
@@ -57,13 +57,16 @@ public:
     bool changeBook(QString bookId, QStringList book);
 
     //图书借阅
-    bool borrowBook(QString userId, QString bookId);
+    int borrowBook(QString bookId);
 
     //图书归还
-    bool returnbook(QString userId, QString bookId);
+    bool returnbook(QString bookId);
 
     //获取借阅记录
     QVector<QStringList> getRecords(QString condition="");
+
+    //获取借阅图书
+    QVector<QStringList> getBorrowingBooks(QString condition = "");
 
     //删除借阅记录
     bool clearRecord();
