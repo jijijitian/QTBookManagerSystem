@@ -19,11 +19,9 @@ public:
 
 private slots:
     //登录按钮槽函数
-    void on_btn_login_clicked();
+    void on_btn_confirm_clicked();
 
     //取消按钮槽函数
-    void on_btn_exit_clicked();
-
     void on_btn_cansel_clicked();
 
 private:

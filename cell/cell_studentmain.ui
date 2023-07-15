@@ -182,7 +182,7 @@ background-color:rgb(67, 74, 80);
           </sizepolicy>
          </property>
          <property name="text">
-          <string> 借阅图书</string>
+          <string> 借阅情况</string>
          </property>
          <property name="icon">
           <iconset resource="../res/res.qrc">

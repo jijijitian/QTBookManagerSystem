@@ -20,7 +20,7 @@
    <item row="0" column="0">
     <widget class="QLabel" name="title">
      <property name="text">
-      <string>借阅图书</string>
+      <string>借阅情况</string>
      </property>
      <property name="name" stdset="0">
       <string>title</string>
@@ -30,7 +30,7 @@
    <item row="1" column="0">
     <widget class="QWidget" name="widget" native="true">
      <layout class="QGridLayout" name="gridLayout">
-      <item row="0" column="0">
+      <item row="0" column="1">
        <spacer name="horizontalSpacer">
         <property name="orientation">
          <enum>Qt::Horizontal</enum>
@@ -42,6 +42,16 @@
          </size>
         </property>
        </spacer>
+      </item>
+      <item row="0" column="0">
+       <widget class="QPushButton" name="pushButton">
+        <property name="text">
+         <string>刷新</string>
+        </property>
+        <property name="name" stdset="0">
+         <string>btn</string>
+        </property>
+       </widget>
       </item>
      </layout>
     </widget>

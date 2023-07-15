@@ -13,7 +13,7 @@ Dlg_ChangePassword::~Dlg_ChangePassword()
     delete ui;
 }
 
-void Dlg_ChangePassword::on_btn_login_clicked()
+void Dlg_ChangePassword::on_btn_confirm_clicked()
 {
     QString password = ui->le_password->text();
     QString password2 = ui->le_password_2->text();
@@ -21,7 +21,7 @@ void Dlg_ChangePassword::on_btn_login_clicked()
     {
         QMessageBox::warning(this, "修改失败", "    两次输入密码不一致，请重试！    ");
     }
-    else
+    else if(password == password2)
     {
         bool ret = SqlManager::getInstance()->changePassword(password);
         if(ret)
@@ -38,14 +38,6 @@ void Dlg_ChangePassword::on_btn_login_clicked()
         }
     }
 }
-
-
-void Dlg_ChangePassword::on_btn_exit_clicked()
-{
-    setResult(0);
-    hide();
-}
-
 
 void Dlg_ChangePassword::on_btn_cansel_clicked()
 {

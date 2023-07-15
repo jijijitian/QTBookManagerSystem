@@ -15,7 +15,13 @@ class Cell_StudentBorrowing : public QWidget
 
 public:
     explicit Cell_StudentBorrowing(QWidget *parent = nullptr);
+
+    void refreshTabel();
+
     ~Cell_StudentBorrowing();
+
+private slots:
+    void on_pushButton_clicked();
 
 private:
     Ui::Cell_StudentBorrowing *ui;
