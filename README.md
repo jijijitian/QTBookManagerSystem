@@ -78,31 +78,31 @@
 
 * 若两次输入的密码一致则成功修改
 
-  ![修改成功](img\changePasswordSuccess.png)
+  ![修改成功](img/changePasswordSuccess.png)
   
 #### 图书借阅
 
 在图书借阅界面显示数据库中图书的信息，上方带有搜索框，支持模糊搜索点击搜索实时更新下方书籍信息。
 
-![图书借阅](img\studentBorrow.png)
+![图书借阅](img/studentBorrow.png)
 
 * 上方带有两个功能按钮。
 
 * 点击图书借阅，输入所要借阅的图书id，若符合要求即可借阅成功（不能重复借阅，借阅的总数不得超过三本），若不符合要求则会弹出相应的错误提示。
 
-  ![借阅成功](img\studentBorrowSuccess.png)
+  ![借阅成功](img/studentBorrowSuccess.png)
 
 然后主界面的图书信息会实时更新
 
 * 点击图书归还，弹出的窗口有一个下拉选择框，会显示已借阅的图书，选择需要归还的图书点击确定即可归还
 
-  ![图书归还](img\studentReturn.png)
+  ![图书归还](img/studentReturn.png)
 
 #### 借阅情况
 
 * 借阅情况显示学生近期的借阅情况，点击刷新按钮即可刷新
 
-  ![借阅情况](img\studentRecord.png)
+  ![借阅情况](img/studentRecord.png)
 
 ---
 
@@ -112,35 +112,35 @@
 
 * 管理员登陆后首先是用户管理页面，用户管理页面中展示了所有数据库中存储的账户信息，便于管理员进行管理
 
-  ![用户管理](img\administratorui.png)
+  ![用户管理](img/administratorui.png)
 
 * 上方有两个功能按键，分别是用户导入和删除用户
 
 * 考虑到学校一般新入学的学生较多，本系统采用批量导入的形式，目前支持csv格式的文件进行导入
 
-  ![用户导入](img\addUser.png)
+  ![用户导入](img/addUser.png)
 
 * 点击删除用户，输入用户id即可删除
 
-  ![删除用户](img\deleteUser.png)
+  ![删除用户](img/deleteUser.png)
 
 #### 图书管理
 
 * 图书管理主界面展示了数据库中所有的图书信息，也提供了与用户管理一样的搜索功能，支持模糊搜索
 
-  ![图书管理](img\bookManager.png)
+  ![图书管理](img/bookManager.png)
 
 * 点击添加书籍按钮，输入图书的信息即可成功添加书籍
 
-  ![添加图书](img\addBook.png)
+  ![添加图书](img/addBook.png)
 
 * 点击更改图书按钮，输入相关数据即可实现图书信息的更改
 
-  ![更改图书](img\changeBook.png)
+  ![更改图书](img/changeBook.png)
 
 * 点击删除图书，输入图书id即可实现图书的删除功能
 
-  ![删除图书](img\deleteBook.png)
+  ![删除图书](img/deleteBook.png)
 
 * 上述功能在完成后主界面的图书信息均会实时更新
 
@@ -148,10 +148,10 @@
 
 * 借阅查询展示了数据库中存储的所有用户借阅的信息，便于管理员管理
 
-  ![借阅查询](img\record.png)
+  ![借阅查询](img/record.png)
 
 * 点击清空记录后便可以实现清空图书的借阅记录（仅支持删除已经归还的借阅记录，若归还时间为空则不会进行删除操作）
 
-  ![清空记录](img\deleteRecord.png)
+  ![清空记录](img/deleteRecord.png)
 
 * 清空操作完成后会实时更新主界面
